@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shield New England Kids — Predator Catching Team Plan</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface2: #1a1a28;
+    --border: #2a2a3a;
+    --text: #d8d8e4;
+    --text-muted: #8888a0;
+    --accent: #e53e3e;
+    --accent2: #c53030;
+    --gold: #d4a017;
+    --green: #38a169;
+    --blue: #4299e1;
+    --orange: #dd6b20;
+    --purple: #805ad5;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    padding: 0;
+  }
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1a0808 0%, #0a0a1a 50%, #0a1a0a 100%);
+    border-bottom: 3px solid var(--accent);
+    padding: 60px 40px;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 3em;
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero .subtitle {
+    font-size: 1.15em;
+    color: var(--text);
+    max-width: 750px;
+    margin: 0 auto 8px;
+  }
+  .hero .motto {
+    font-size: 1em;
+    color: var(--gold);
+    font-weight: 700;
+    font-style: italic;
+    margin-top: 16px;
+  }
+  .hero .badge-row {
+    display: flex; justify-content: center; gap: 16px; margin-top: 20px; flex-wrap: wrap;
+  }
+  .hero .badge {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 6px 18px;
+    border-radius: 30px;
+    font-size: .85em;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  /* NAV — sticky dropdown */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 20px;
+    display: flex; align-items: center; height: 48px;
+  }
+  .nav-brand {
+    color: #fff; font-weight: 800; font-size: .9em; letter-spacing: 2px;
+    text-transform: uppercase; margin-right: auto; user-select: none;
+  }
+  .nav-brand span { color: var(--accent); }
+  .nav-dropdown {
+    position: relative;
+  }
+  .nav-toggle {
+    background: var(--surface2); border: 1px solid var(--border);
+    color: var(--text); padding: 8px 20px; border-radius: 6px;
+    font-size: .85em; font-weight: 600; cursor: pointer;
+    transition: all .2s; display: flex; align-items: center; gap: 8px;
+  }
+  .nav-toggle:hover { border-color: var(--accent); color: #fff; }
+  .nav-toggle .arrow-icon {
+    font-size: .7em; transition: transform .2s;
+  }
+  .nav-dropdown.open .arrow-icon { transform: rotate(180deg); }
+  .nav-menu {
+    display: none;
+    position: absolute; top: calc(100% + 8px); right: 0;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 8px 0; min-width: 220px;
+    box-shadow: 0 12px 40px rgba(0,0,0,.5);
+  }
+  .nav-dropdown.open .nav-menu { display: block; }
+  .nav-menu a {
+    display: block; padding: 9px 20px;
+    color: var(--text-muted); text-decoration: none;
+    font-size: .85em; font-weight: 600;
+    transition: all .15s;
+  }
+  .nav-menu a:hover {
+    color: #fff; background: rgba(229,62,62,.1);
+    padding-left: 24px;
+  }
+  .nav-menu .divider {
+    height: 1px; background: var(--border); margin: 6px 12px;
+  }
+  /* MAIN */
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px 30px; }
+  section { margin-bottom: 60px; }
+  h2 {
+    font-size: 1.7em; font-weight: 700; color: #fff;
+    border-left: 4px solid var(--accent); padding-left: 16px;
+    margin-bottom: 20px;
+  }
+  h3 {
+    font-size: 1.2em; font-weight: 700; color: var(--gold);
+    margin: 28px 0 10px;
+  }
+  h4 { font-size: 1.05em; color: var(--blue); margin: 18px 0 8px; }
+  p, li { color: var(--text); margin-bottom: 8px; }
+  ul, ol { padding-left: 24px; }
+  li { margin-bottom: 5px; }
+  /* CARDS */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 18px;
+  }
+  .card.highlight {
+    border-color: var(--accent);
+    background: rgba(229,62,62,.04);
+  }
+  .card.good {
+    border-color: var(--green);
+    background: rgba(56,161,105,.04);
+  }
+  .card.note {
+    border-color: var(--blue);
+    background: rgba(66,153,225,.04);
+  }
+  .card.heads-up {
+    border-color: var(--orange);
+    background: rgba(221,107,32,.04);
+  }
+  .card-label {
+    font-size: .75em; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 2px; margin-bottom: 8px;
+  }
+  .card.highlight .card-label { color: var(--accent); }
+  .card.good .card-label { color: var(--green); }
+  .card.note .card-label { color: var(--blue); }
+  .card.heads-up .card-label { color: var(--orange); }
+  /* TABLE */
+  table {
+    width: 100%; border-collapse: collapse;
+    margin: 14px 0; font-size: .9em;
+  }
+  th {
+    background: var(--surface2); color: var(--gold);
+    padding: 10px 14px; text-align: left;
+    font-weight: 700; font-size: .8em;
+    text-transform: uppercase; letter-spacing: 1px;
+    border-bottom: 2px solid var(--accent);
+  }
+  td {
+    padding: 10px 14px; border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:hover td { background: var(--surface2); }
+  .tag {
+    display: inline-block; padding: 2px 10px; border-radius: 12px;
+    font-size: .8em; font-weight: 600;
+  }
+  .tag-green { background: rgba(56,161,105,.2); color: var(--green); }
+  .tag-red { background: rgba(229,62,62,.2); color: var(--accent); }
+  .tag-orange { background: rgba(221,107,32,.2); color: var(--orange); }
+  .tag-blue { background: rgba(66,153,225,.2); color: var(--blue); }
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+  @media (max-width: 768px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2em; }
+    .container { padding: 20px 16px; }
+  }
+  /* STATE TABS */
+  .state-tabs { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+  .state-tab {
+    padding: 10px 24px; border-radius: 8px;
+    background: var(--surface2); border: 1px solid var(--border);
+    color: var(--text-muted); font-weight: 700; font-size: .9em;
+    cursor: pointer; transition: all .2s;
+  }
+  .state-tab:hover, .state-tab.active {
+    color: #fff; border-color: var(--accent); background: rgba(229,62,62,.1);
+  }
+  .state-panel { display: none; }
+  .state-panel.active { display: block; }
+  /* CHECKLIST */
+  .checklist li { list-style: none; padding-left: 0; }
+  .checklist li::before { content: "[ ] "; color: var(--accent); font-weight: 700; font-family: monospace; }
+  /* STEP */
+  .step {
+    display: flex; gap: 18px; margin-bottom: 22px; align-items: flex-start;
+  }
+  .step-num {
+    min-width: 44px; height: 44px; border-radius: 50%;
+    background: var(--accent); color: #fff; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1em; flex-shrink: 0;
+  }
+  .step-body { flex: 1; }
+  .step-body h4 { margin-top: 2px; color: #fff; }
+  /* ESCALATION */
+  .escalation {
+    display: flex; gap: 0; margin: 20px 0; flex-wrap: wrap;
+  }
+  .escalation-step {
+    flex: 1; min-width: 200px; padding: 20px;
+    border: 1px solid var(--border); position: relative;
+  }
+  .escalation-step:first-child { border-radius: 12px 0 0 12px; }
+  .escalation-step:last-child { border-radius: 0 12px 12px 0; }
+  .escalation-step .num {
+    font-size: 2em; font-weight: 800; color: var(--accent); line-height: 1;
+  }
+  .escalation-step h4 { color: var(--gold); margin: 8px 0 4px; font-size: .95em; }
+  .escalation-step p { font-size: .85em; color: var(--text-muted); margin: 0; }
+  .escalation-step.lvl1 { background: rgba(56,161,105,.06); border-color: var(--green); }
+  .escalation-step.lvl2 { background: rgba(66,153,225,.06); border-color: var(--blue); }
+  .escalation-step.lvl3 { background: rgba(221,107,32,.06); border-color: var(--orange); }
+  .escalation-step.lvl4 { background: rgba(229,62,62,.06); border-color: var(--accent); }
+  /* PRINT */
+  @media print {
+    .nav { display: none; }
+    body { background: #fff; color: #000; }
+    .hero { background: #eee; border-color: #333; }
+    .hero h1, .hero h1 span, h2, h3, h4 { color: #000; }
+    .card { border: 1px solid #ccc; background: #f9f9f9; }
+    th { background: #ddd; color: #000; }
+    td { border-color: #ccc; }
+  }
+  .footnote {
+    border-top: 1px solid var(--border);
+    margin-top: 80px; padding-top: 24px;
+    color: var(--text-muted); font-size: .8em; text-align: center;
+  }
+  strong { color: #fff; }
+  code {
+    background: var(--surface2); padding: 2px 8px; border-radius: 4px;
+    font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: .9em;
+    color: var(--gold);
+  }
+  .arrow { color: var(--accent); font-size: 1.3em; margin: 0 8px; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1><span>Shield New England Kids</span></h1>
+  <p class="subtitle">Our playbook for building a predator catching team across New England. The laws, the plan, the team, and how we're going to do this the right way.</p>
+  <p class="motto">"Fight fire with molten hot lava."</p>
+  <div class="badge-row">
+    <span class="badge">New Hampshire</span>
+    <span class="badge">Maine</span>
+    <span class="badge">Vermont</span>
+    <span class="badge">Massachusetts</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav">
+  <div class="nav-brand"><span>Shield NE Kids</span></div>
+  <div class="nav-dropdown" id="navDropdown">
+    <button class="nav-toggle" onclick="document.getElementById('navDropdown').classList.toggle('open')">
+      Jump To Section <span class="arrow-icon">&#9660;</span>
+    </button>
+    <div class="nav-menu" onclick="document.getElementById('navDropdown').classList.remove('open')">
+      <a href="#why">Why We Do This</a>
+      <a href="#escalation">Escalation Model</a>
+      <a href="#icac">ICAC Playbook</a>
+      <div class="divider"></div>
+      <a href="#state-laws">State Laws</a>
+      <a href="#recording">Recording</a>
+      <a href="#entrapment">Entrapment</a>
+      <a href="#confrontation">Confrontation</a>
+      <div class="divider"></div>
+      <a href="#decoys">Decoy Operations</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#brand">Brand & YouTube</a>
+      <a href="#team">Team Structure</a>
+      <a href="#legal-entity">Legal Entity</a>
+      <div class="divider"></div>
+      <a href="#ops-plan">Operations Plan</a>
+      <a href="#checklist">Launch Checklist</a>
+      <a href="#groups-study">Groups To Learn From</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ============================================================ -->
+<section id="why">
+<h2>Why We Do This</h2>
+<div class="card">
+<p>Every single day, predators are sliding into kids' DMs, grooming them, and setting up meetings. Law enforcement is stretched thin. Cases get dropped. Predators walk. The system fails kids more often than it protects them.</p>
+<p>We're not waiting for the system to catch up. We're building a team that identifies these people, gathers rock-solid evidence, works with law enforcement when they'll act, and exposes predators publicly when they won't. Every predator we catch is one less person who gets to hurt a child.</p>
+<p>This document lays out everything — the legal framework across four New England states, how we build our team, how we work with ICAC, how we handle evidence, and how we escalate when the system doesn't do its job. We've done the homework. Now we execute.</p>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<section id="escalation">
+<h2>The Escalation Model</h2>
+<p>We're not going in guns blazing on day one. We follow a process. ICAC and law enforcement get first shot. But when the system fails — and it will sometimes — we escalate. Here's how it works:</p>
+
+<div class="escalation">
+<div class="escalation-step lvl1">
+<div class="num">1</div>
+<h4>Gather Evidence</h4>
+<p>Decoy operation, chat logs, screenshots, screen recordings. Build an airtight case.</p>
+</div>
+<div class="escalation-step lvl2">
+<div class="num">2</div>
+<h4>ICAC / Law Enforcement</h4>
+<p>Hand everything over. Give them a real chance to act. Follow up. Push for charges.</p>
+</div>
+<div class="escalation-step lvl3">
+<div class="num">3</div>
+<h4>Public Exposure</h4>
+<p>If charges don't happen or get dropped — the video goes up. Their face, their words, their intent. The internet doesn't forget.</p>
+</div>
+<div class="escalation-step lvl4">
+<div class="num">4</div>
+<h4>Live Confrontation</h4>
+<p>Face-to-face. On camera. If things get physical, we accept what comes with that. Predators should never feel safe.</p>
+</div>
+</div>
+
+<div class="card note">
+<div class="card-label">Why ICAC Gets First Shot</div>
+<p>ICAC might already be running a long investigation on the same person. If we blow that up with a premature confrontation, we could tank months of their work and let a predator walk on a technicality. Reaching out to ICAC first costs us nothing but a phone call. If they're already on it, we stay out of the way and let the pros finish. If they're not, we have a contact who knows our work and might pick up the case. Either way, we win.</p>
+<p>The confrontation and public exposure are always on the table. They're the escalation when the system doesn't deliver. But ICAC gets the first look every time. Out of courtesy to the people who eat, sleep, and breathe this nightmare daily — we give them the shot before we go public.</p>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<section id="icac">
+<h2>ICAC Integration Playbook</h2>
+<p>ICAC (Internet Crimes Against Children) task forces are the cops who actually specialize in this. There are 61 task forces nationwide with over 5,400 agencies. Every state we're operating in has one. Building a relationship with them is the single biggest force multiplier we have.</p>
+
+<h3>Step 1: Make First Contact</h3>
+<div class="card">
+<p>Before we run a single operation, we reach out to the ICAC task forces in all four states. Here's how:</p>
+<ul>
+<li><strong>Find your local ICAC</strong> — icactaskforce.org lists every task force by state</li>
+<li><strong>Call the non-emergency line</strong> for your local PD or state police and ask to speak with someone from the ICAC unit or Internet Crimes division</li>
+<li><strong>Introduce the organization</strong> — who we are, what our mission is, and that we want to work WITH them, not around them</li>
+<li><strong>Explain our methods</strong> — decoy profiles, chat evidence collection, how we preserve evidence, and that we operate independently (important for the entrapment issue)</li>
+<li><strong>Ask for a point of contact</strong> — a specific detective or agent we can reach when we have something</li>
+<li><strong>Ask if they have any guidance</strong> — they may have specific things they want or don't want us to do</li>
+</ul>
+<p>Some of them will be receptive, some won't. That's fine. We document every contact attempt and keep trying. The ones who work with us become our most valuable relationships.</p>
+</div>
+
+<h3>Step 2: The Evidence Handoff Protocol</h3>
+<div class="card">
+<p>Every time we build a case, ICAC gets the evidence packet before anything goes public. Here's the exact protocol:</p>
+<ol>
+<li><strong>Complete the investigation</strong> — full chat logs, screen recordings, all evidence preserved with SHA-256 hashes</li>
+<li><strong>Prepare the packet</strong> — printed chat logs, USB drive with all digital evidence, written timeline, suspect info, decoy profile details</li>
+<li><strong>Contact our ICAC point person</strong> — "We have a case, here's a brief summary, when can we bring you the evidence?"</li>
+<li><strong>Hand it off in person</strong> — file a formal report at the station in the jurisdiction where the suspect traveled to (or would have traveled to)</li>
+<li><strong>Get a case number</strong> — this is critical for tracking</li>
+<li><strong>Ask the key question:</strong> "Is this person already on your radar or part of an ongoing investigation?" — if yes, we back off completely and let them work</li>
+<li><strong>Set a follow-up date</strong> — "I'll check back in two weeks for an update"</li>
+</ol>
+</div>
+
+<h3>Step 3: The Follow-Up Cadence</h3>
+<div class="card">
+<table>
+<tr><th>Timeline</th><th>Action</th></tr>
+<tr><td><strong>Day 1</strong></td><td>Evidence handoff + police report filed</td></tr>
+<tr><td><strong>Week 2</strong></td><td>First follow-up call — "Any update on case #____?"</td></tr>
+<tr><td><strong>Week 4</strong></td><td>Second follow-up — ask if the case has been assigned to a detective</td></tr>
+<tr><td><strong>Week 6</strong></td><td>Third follow-up — ask if charges are being considered</td></tr>
+<tr><td><strong>Week 8+</strong></td><td>If no action has been taken, no charges filed, and no investigation is active — this is where we escalate to public exposure and/or confrontation</td></tr>
+</table>
+<p style="margin-top: 12px;">We give the system <strong>a real, honest chance</strong> to work. Two months. If nothing happens after we've done everything right and handed them a case on a silver platter — that's when the video goes up and the community finds out who this person is.</p>
+</div>
+
+<h3>Step 4: Building the Ongoing Relationship</h3>
+<div class="card">
+<ul>
+<li><strong>Be professional every single time.</strong> We're not calling to complain. We're partners, not pests.</li>
+<li><strong>Share results.</strong> When a case we handed off leads to an arrest, celebrate it publicly (with LE's permission). This builds trust and shows the system works when we work together.</li>
+<li><strong>Invite them to speak.</strong> If we build a community presence, inviting ICAC to do awareness events with us builds credibility for both sides.</li>
+<li><strong>Never burn the bridge.</strong> Even when they don't act on a case, we stay respectful. That detective who couldn't help us today might be the one who takes our next case seriously.</li>
+<li><strong>Stay independent.</strong> We never take direction from LE during an active decoy operation. We operate on our own, then hand off after. This protects the case from entrapment claims (more on that below).</li>
+</ul>
+</div>
+
+<h3>ICAC Contacts by State</h3>
+<div class="card note">
+<table>
+<tr><th>State</th><th>Task Force</th><th>How to Reach</th></tr>
+<tr><td><strong>New Hampshire</strong></td><td>NH ICAC Task Force (NH AG Office / State Police)</td><td>NH AG's office: (603) 271-3658 — ask for ICAC unit</td></tr>
+<tr><td><strong>Maine</strong></td><td>Maine ICAC Task Force (Maine State Police)</td><td>Maine State Police: (207) 624-7076 — ask for Computer Crimes Unit</td></tr>
+<tr><td><strong>Vermont</strong></td><td>VT ICAC Task Force (VT State Police)</td><td>VT Internet Crimes: (802) 244-8727</td></tr>
+<tr><td><strong>Massachusetts</strong></td><td>MA ICAC Task Force (MA AG Office / State Police)</td><td>MA AG Cyber Crime: (617) 727-2200 — ask for ICAC</td></tr>
+</table>
+<p style="margin-top:10px;font-size:.85em;color:var(--text-muted);">Verify these numbers before calling — they can change. The icactaskforce.org website has the most current info.</p>
+</div>
+
+<h3>What If ICAC Says "Stop"?</h3>
+<div class="card">
+<p>It could happen. Some departments don't want civilians doing this work in their jurisdiction. If they explicitly ask us to stop operating in a specific area:</p>
+<ul>
+<li><strong>We listen.</strong> Not because we agree, but because antagonizing the one group of cops who actually investigate these crimes is counterproductive.</li>
+<li><strong>We shift geography.</strong> Four states, dozens of jurisdictions. If one town doesn't want us there, we operate in the next one.</li>
+<li><strong>We document the refusal.</strong> If ICAC refuses to act AND tells us to stop, and that predator goes on to hurt a kid — that's a story that writes itself.</li>
+<li><strong>We stay available.</strong> "We respect your request. If you ever want to work with us, we're here."</li>
+</ul>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<section id="state-laws">
+<h2>State-by-State Legal Breakdown</h2>
+<p>All four states have laws that make what predators do a serious crime — even when they're talking to our decoys instead of real kids. The "believed to be a minor" language in every state's statutes is what makes this work. Here's the full picture.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Issue</th>
+  <th>New Hampshire</th>
+  <th>Maine</th>
+  <th>Vermont</th>
+  <th>Massachusetts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Primary Statute</strong></td>
+  <td>RSA 649-B:3</td>
+  <td>17-A §259</td>
+  <td>13 V.S.A. §2825</td>
+  <td>MGL c.265 §26C</td>
+</tr>
+<tr>
+  <td><strong>What It Covers</strong></td>
+  <td>Computer solicitation of minor</td>
+  <td>Solicitation of child by computer</td>
+  <td>Online solicitation of child</td>
+  <td>Enticement of child under 16</td>
+</tr>
+<tr>
+  <td><strong>Works With Decoys?</strong></td>
+  <td><span class="tag tag-green">Yes — "believed to be"</span></td>
+  <td><span class="tag tag-green">Yes — "believed to be"</span></td>
+  <td><span class="tag tag-green">Yes — "believed to be"</span></td>
+  <td><span class="tag tag-green">Yes — "believes to be"</span></td>
+</tr>
+<tr>
+  <td><strong>Age Threshold</strong></td>
+  <td>Under 16</td>
+  <td>Under 14 (enhanced under 12)</td>
+  <td>Under 16</td>
+  <td>Under 16 (§26C) / Under 18 (§26D)</td>
+</tr>
+<tr>
+  <td><strong>Penalty</strong></td>
+  <td>Class B felony — up to 7 yrs</td>
+  <td>Class C crime</td>
+  <td>Felony — up to 10 yrs</td>
+  <td>Up to 5 yrs (first) / 10 yrs (repeat)</td>
+</tr>
+<tr>
+  <td><strong>Age of Consent</strong></td>
+  <td>16</td>
+  <td>16</td>
+  <td>16</td>
+  <td>16</td>
+</tr>
+<tr>
+  <td><strong>Recording</strong></td>
+  <td><span class="tag tag-orange">Two-party consent</span></td>
+  <td><span class="tag tag-green">One-party consent</span></td>
+  <td><span class="tag tag-green">One-party consent</span></td>
+  <td><span class="tag tag-orange">Two-party consent</span></td>
+</tr>
+<tr>
+  <td><strong>Entrapment vs Us?</strong></td>
+  <td><span class="tag tag-green">Doesn't apply</span></td>
+  <td><span class="tag tag-green">Doesn't apply</span></td>
+  <td><span class="tag tag-green">Doesn't apply</span></td>
+  <td><span class="tag tag-green">Doesn't apply</span></td>
+</tr>
+<tr>
+  <td><strong>Stand Your Ground</strong></td>
+  <td><span class="tag tag-green">Yes — RSA 627:4</span></td>
+  <td><span class="tag tag-green">Yes — 17-A §108</span></td>
+  <td><span class="tag tag-green">Yes — case law</span></td>
+  <td><span class="tag tag-orange">No — duty to retreat</span></td>
+</tr>
+<tr>
+  <td><strong>Our Rating</strong></td>
+  <td><span class="tag tag-blue">Good — just mind recording</span></td>
+  <td><span class="tag tag-green">Best — full green light</span></td>
+  <td><span class="tag tag-green">Great — same as Maine</span></td>
+  <td><span class="tag tag-orange">Workable — extra care needed</span></td>
+</tr>
+</tbody>
+</table>
+
+<!-- State Detail Tabs -->
+<div class="state-tabs">
+  <div class="state-tab active" onclick="showState('nh')">New Hampshire</div>
+  <div class="state-tab" onclick="showState('me')">Maine</div>
+  <div class="state-tab" onclick="showState('vt')">Vermont</div>
+  <div class="state-tab" onclick="showState('ma')">Massachusetts</div>
+</div>
+
+<div id="state-nh" class="state-panel active">
+<div class="card">
+<h3>New Hampshire</h3>
+<table>
+<tr><th>Statute</th><th>What It Does For Us</th></tr>
+<tr><td><code>RSA 649-B:3</code></td><td><strong>Our main weapon.</strong> Computer solicitation of minors — covers anyone who solicits someone they <em>believe</em> is under 16. Class B felony, up to 7 years. Doesn't matter that our decoy is an adult.</td></tr>
+<tr><td><code>RSA 632-A:2</code></td><td>Aggravated Felonious Sexual Assault — if they go after someone under 13, it's Class A felony territory. 10-20 years to life.</td></tr>
+<tr><td><code>RSA 632-A:3</code></td><td>Felonious Sexual Assault — sexual contact with under 13, or penetration with 13-15 (actor 4+ yrs older). Class B felony.</td></tr>
+<tr><td><code>RSA 645:1</code></td><td>Indecent exposure becomes a Class B felony when victim is under 16. Good for when they send pics.</td></tr>
+<tr><td><code>RSA 626:5</code></td><td>Entrapment defense — only works against law enforcement. Doesn't apply to us.</td></tr>
+<tr><td><code>RSA 627:4</code></td><td>Self-defense + Stand Your Ground. No duty to retreat as long as we're not the initial aggressor.</td></tr>
+<tr><td><code>RSA 570-A:2</code></td><td>Two-party recording consent. We handle this by announcing cameras and relying on chat logs as primary evidence.</td></tr>
+<tr><td><code>RSA 594:1-a</code></td><td>Citizen's arrest — allowed for felonies with reasonable grounds.</td></tr>
+</table>
+<div class="card note" style="margin-top:14px">
+<div class="card-label">NH Recording Strategy</div>
+<p>Two-party consent only covers audio. Text chats, DMs, screenshots — all fair game. For confrontation video, we record in public and announce we're filming. They can leave if they want. Most don't. Once they stick around and keep talking, that's their choice.</p>
+</div>
+</div>
+</div>
+
+<div id="state-me" class="state-panel">
+<div class="card">
+<h3>Maine</h3>
+<table>
+<tr><th>Statute</th><th>What It Does For Us</th></tr>
+<tr><td><code>17-A §259</code></td><td><strong>Best statute in our coverage area.</strong> Solicitation of child by computer — covers person believed to be under 14. Works perfectly with decoy operations.</td></tr>
+<tr><td><code>17-A §253-A</code></td><td>Gross Sexual Assault for minors under 14 — Class A felony. Heavy charges for the worst offenders.</td></tr>
+<tr><td><code>17-A §255-A</code></td><td>Sexual Abuse of Minor — covers 14-15 range (actor 5+ yrs older) and position of authority situations.</td></tr>
+<tr><td><code>15 M.R.S. §709</code></td><td><strong>One-party consent.</strong> We can record every conversation, every phone call, every confrontation. No restrictions.</td></tr>
+<tr><td><code>17-A §108</code></td><td>Self-defense + Stand Your Ground. No duty to retreat.</td></tr>
+<tr><td><code>17-A §16</code></td><td>Citizen's arrest for Class A/B/C crimes committed in our presence, or probable cause for felony.</td></tr>
+</table>
+<div class="card good" style="margin-top:14px">
+<div class="card-label">Maine Is Home Base</div>
+<p>One-party recording consent means we can capture everything. Stand Your Ground means we're protected if someone gets aggressive. Strong solicitation statutes mean serious charges. This is where we build our foundation and develop our ICAC relationships first.</p>
+</div>
+</div>
+</div>
+
+<div id="state-vt" class="state-panel">
+<div class="card">
+<h3>Vermont</h3>
+<table>
+<tr><th>Statute</th><th>What It Does For Us</th></tr>
+<tr><td><code>13 V.S.A. §2825</code></td><td><strong>Online solicitation of child.</strong> Covers electronic solicitation of person believed to be under 16. Felony — up to 10 years. Strongest penalty in the region.</td></tr>
+<tr><td><code>13 V.S.A. §2828</code></td><td>Luring a child — getting someone under 16 to go to a place or enter a vehicle for sexual purposes. Adds another charge to stack.</td></tr>
+<tr><td><code>13 V.S.A. §3252</code></td><td>Sexual assault covering various minor age thresholds.</td></tr>
+<tr><td><code>12 V.S.A. §1062</code></td><td><strong>One-party consent.</strong> Same freedom as Maine — record everything.</td></tr>
+<tr><td><code>13 V.S.A. §1023</code></td><td>Simple assault + Stand Your Ground by case law (State v. Hatcher).</td></tr>
+</table>
+<div class="card good" style="margin-top:14px">
+<div class="card-label">Vermont Advantage</div>
+<p>Up to 10 years for online solicitation — heaviest penalty of our four states. One-party consent recording, Stand Your Ground. Vermont is our second-best operating environment after Maine.</p>
+</div>
+</div>
+</div>
+
+<div id="state-ma" class="state-panel">
+<div class="card">
+<h3>Massachusetts</h3>
+<table>
+<tr><th>Statute</th><th>What It Does For Us</th></tr>
+<tr><td><code>MGL c.265 §26C</code></td><td><strong>Enticement of child under 16.</strong> Covers anyone who entices a person they believe is under 16 for sexual purposes. Up to 5 years (first), 10 years (subsequent).</td></tr>
+<tr><td><code>MGL c.265 §26D</code></td><td>Enticement via electronic communication — extends to under 18. Broader net.</td></tr>
+<tr><td><code>MGL c.272 §29A</code></td><td>Solicitation of child under 18 for sexual conduct.</td></tr>
+<tr><td><code>MGL c.272 §29B</code></td><td>Dissemination of matter harmful to minor — for when they send explicit material.</td></tr>
+<tr><td><code>MGL c.272 §99</code></td><td>Two-party consent for recording. Stricter than NH. We handle this the same way — announce filming, rely on chat evidence.</td></tr>
+<tr><td><code>MGL c.265 §13A</code></td><td>Assault and battery. MA has duty to retreat — no Stand Your Ground.</td></tr>
+</table>
+<div class="card heads-up" style="margin-top:14px">
+<div class="card-label">MA Approach</div>
+<p>Two-party consent recording + duty to retreat makes MA our most restrictive state. Chat logs are king here. For confrontations, we announce cameras loud and clear. The duty to retreat means we walk away first if things get physical — but that doesn't stop us from operating here. The evidence we gather is still solid, the charges still stick, and the exposure still works.</p>
+</div>
+</div>
+</div>
+
+</section>
+
+<!-- ============================================================ -->
+<section id="recording">
+<h2>Recording — What We Can Capture</h2>
+
+<div class="grid-2">
+<div class="card good">
+<h4>Maine & Vermont — Full Freedom</h4>
+<p>One-party consent means if we're part of the conversation, we can record it. Phone calls, video chats, in-person confrontations — everything is fair game without telling the other person.</p>
+<p>These are our primary operating states for a reason. Full audio/video of every interaction. Perfect for evidence, perfect for content.</p>
+</div>
+<div class="card">
+<h4>NH & MA — Announce and Record</h4>
+<p>Two-party consent states. We handle it simply: record in public, announce we're filming. Chat logs and screenshots are always legal everywhere — they're not covered by wiretapping statutes. For confrontation video, the predator can walk away at any point. If they stand there and talk to us on camera after being told they're being recorded, that's on them.</p>
+</div>
+</div>
+
+<div class="card note">
+<div class="card-label">What's Safe In All Four States</div>
+<ul>
+<li><strong>Text chats, DMs, screenshots</strong> — always legal, not covered by wiretapping laws</li>
+<li><strong>Screen recordings of online conversations</strong> — we're recording our own screen</li>
+<li><strong>Video in public spaces</strong> — no expectation of privacy in public</li>
+<li><strong>Video after announcing "you're being recorded"</strong> — consent by choosing to stay</li>
+</ul>
+</div>
+
+<table>
+<tr><th>State</th><th>Chat Logs</th><th>Phone Calls</th><th>Confrontation Video</th><th>Best Approach</th></tr>
+<tr>
+<td><strong>Maine</strong></td>
+<td><span class="tag tag-green">Always good</span></td>
+<td><span class="tag tag-green">Record freely</span></td>
+<td><span class="tag tag-green">Record freely</span></td>
+<td>Record everything. Best state for content creation.</td>
+</tr>
+<tr>
+<td><strong>Vermont</strong></td>
+<td><span class="tag tag-green">Always good</span></td>
+<td><span class="tag tag-green">Record freely</span></td>
+<td><span class="tag tag-green">Record freely</span></td>
+<td>Same as Maine. Full green light.</td>
+</tr>
+<tr>
+<td><strong>NH</strong></td>
+<td><span class="tag tag-green">Always good</span></td>
+<td><span class="tag tag-orange">Announce first</span></td>
+<td><span class="tag tag-orange">Announce first</span></td>
+<td>Chat evidence is primary. Announce cameras at confrontation.</td>
+</tr>
+<tr>
+<td><strong>MA</strong></td>
+<td><span class="tag tag-green">Always good</span></td>
+<td><span class="tag tag-orange">Announce first</span></td>
+<td><span class="tag tag-orange">Announce first</span></td>
+<td>Same as NH. Chat evidence is primary.</td>
+</tr>
+</table>
+</section>
+
+<!-- ============================================================ -->
+<section id="entrapment">
+<h2>Entrapment — It Doesn't Apply To Us</h2>
+
+<div class="card good">
+<div class="card-label">This Is Our Biggest Legal Advantage</div>
+<p>Entrapment as a legal defense only works against <strong>government agents</strong> — law enforcement. It does not apply to private citizens. Period. This is consistent across all four states and basically every jurisdiction in the country.</p>
+<ul>
+<li><strong>NH:</strong> RSA 626:5 — explicitly says "law enforcement officials" only</li>
+<li><strong>ME:</strong> 17-A §101(1) — requires government agent inducement</li>
+<li><strong>VT:</strong> Same principle under Vermont case law</li>
+<li><strong>MA:</strong> Commonwealth v. Tracey (2003) — confirmed, requires government inducement</li>
+</ul>
+<p>A predator can't walk into court and say "they entrapped me" when "they" is a group of civilians. That defense is dead on arrival.</p>
+</div>
+
+<h3>Keep It Clean Anyway</h3>
+<p>Even though entrapment doesn't legally apply to us, we still run clean operations because it makes the evidence stronger, it makes prosecutors more willing to pick up cases, and it makes us bulletproof on camera:</p>
+<ol>
+<li><strong>Never start the sexual conversation.</strong> The predator drives every escalation.</li>
+<li><strong>State the decoy's age clearly and early.</strong> First few messages. No ambiguity.</li>
+<li><strong>Never suggest the meetup first.</strong> Let them propose it.</li>
+<li><strong>If they get cold feet, let them go.</strong> We don't convince reluctant people to show up.</li>
+<li><strong>Save the complete, unedited logs.</strong> Every message, every timestamp. This proves who was pushing what.</li>
+<li><strong>Make them travel to us.</strong> When they drive to a meeting location, that's intent they can't talk their way out of.</li>
+</ol>
+
+<div class="card heads-up">
+<div class="card-label">The Independence Rule</div>
+<p>We operate independently from law enforcement during active decoy operations. If we coordinate with police during the sting itself, a defense attorney could argue we were acting as government agents — which <em>would</em> open the door to entrapment claims. The move is simple: do our work independently, then hand off evidence after the fact. We partner with ICAC on the handoff, not the operation.</p>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<section id="confrontation">
+<h2>Confrontation & What Happens If It Gets Physical</h2>
+
+<p>We're going to be straight about this. When you confront a grown man who just drove across town to have sex with who he thought was a 13-year-old, emotions run high. On both sides. Things can get physical. We know that. We accept that.</p>
+
+<h3>What We Know Going In</h3>
+<div class="card">
+<ul>
+<li><strong>Simple assault is a misdemeanor</strong> in all four states — typically up to 1 year max. NH: RSA 631:2-a. ME: 17-A §207. VT: 13 V.S.A. §1023. MA: MGL c.265 §13A.</li>
+<li><strong>Serious bodily injury</strong> bumps it to a felony — NH up to 15 yrs, ME/VT/MA similar ranges. We're not trying to put anyone in the hospital. But if a punch lands hard, that's the legal landscape.</li>
+<li><strong>The realistic odds of a predator calling the cops on US?</strong> Slim to none. They just got caught trying to meet a child. The last thing they want is more law enforcement involvement. Most just want to disappear.</li>
+<li><strong>Three of our four states have Stand Your Ground</strong> (NH, ME, VT). If the predator swings first, we're legally protected to defend ourselves without retreating. In MA, there's a duty to retreat — we try to walk away first in MA, but we're not getting hurt to satisfy a statute.</li>
+</ul>
+</div>
+
+<h3>The Escalation Reality</h3>
+<div class="card highlight">
+<div class="card-label">We Accept These Risks</div>
+<p>Let's lay it out plainly:</p>
+<table>
+<tr><th>If This Happens</th><th>Here's What We're Looking At</th></tr>
+<tr><td>We push/shove during confrontation</td><td>Simple assault / misdemeanor. Unlikely to be reported by the predator.</td></tr>
+<tr><td>A punch gets thrown (by us)</td><td>Simple assault / battery. Misdemeanor. Up to 1 year. Again — who's calling the cops?</td></tr>
+<tr><td>They swing first, we defend ourselves</td><td>Self-defense. Clean in NH/ME/VT (Stand Your Ground). In MA, arguable if we tried to disengage first.</td></tr>
+<tr><td>Someone gets seriously hurt</td><td>Aggravated assault territory. This is felony range. We do NOT want to be here.</td></tr>
+<tr><td>It's all on camera</td><td>The footage is what it is. If we're in the right, it helps us. If we went overboard, it's evidence against us too. Context matters — juries see a predator who showed up to meet a kid.</td></tr>
+</table>
+<p style="margin-top:14px;">The bottom line: a predator who just got caught soliciting a child is not calling the police. They're running. The public exposure is the real punishment anyway. But we accept that if someone does press charges, we're looking at a misdemeanor for simple assault. We've weighed that against letting predators feel safe, and we've made our choice.</p>
+</div>
+
+<h3>Smart Confrontation Practices</h3>
+<div class="card">
+<ul>
+<li><strong>Always in public spaces</strong> — parking lots, parks, public sidewalks. Never on private property.</li>
+<li><strong>Cameras rolling from the start</strong> — context is everything. The full video shows they arrived voluntarily.</li>
+<li><strong>Lead with questions</strong> — "What are you doing here? Who are you here to meet? How old did she say she was?" Get their words on camera first.</li>
+<li><strong>Have security present</strong> — their job is protecting the team, not engaging the predator.</li>
+<li><strong>If they run, let them run.</strong> We got what we need. Following is where stalking/harassment claims come from.</li>
+<li><strong>If they get aggressive first</strong> — three states protect us with Stand Your Ground. Defend yourself, use proportional force, disengage when the threat stops.</li>
+<li><strong>In Massachusetts specifically</strong> — we try to de-escalate and step back first. The duty to retreat is real here.</li>
+</ul>
+</div>
+
+<h3>Citizen's Arrest</h3>
+<div class="card">
+<p>All four states allow citizen's arrest for felonies. Online solicitation is a felony. We have the legal right. That said, physically detaining someone is where things get complicated fast — false imprisonment claims, excessive force arguments. The better play 90% of the time is to let them leave and hand the evidence to ICAC. They know who the person is. The evidence speaks. If we need to hold someone for police, we do it verbally — "The police are on their way" — not physically.</p>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<section id="decoys">
+<h2>Decoy Operations</h2>
+
+<h3>Who We Recruit</h3>
+<div class="card">
+<ul>
+<li><strong>All decoys are adults (18+).</strong> No exceptions.</li>
+<li>Best fit: people 18-25 who can carry a conversation as a younger teenager through text</li>
+<li>Survivors who want to turn their experience into action are some of the strongest volunteers we'll find</li>
+<li>Background check everyone. If a decoy has a record — especially anything involving dishonesty — a defense attorney will use it to tear apart the case.</li>
+<li>Train them on legal boundaries, evidence preservation, persona consistency, and emotional resilience. This content is heavy.</li>
+</ul>
+</div>
+
+<h3>Profile Photos & Likeness — Real People Only</h3>
+<div class="card note">
+<div class="card-label">Why We Don't Use AI Faces</div>
+<p>AI-generated photos don't cut it. Predators ask for video calls. They ask for verification photos — "write my name on a piece of paper and take a selfie." One failed verification and the catch is blown. We need real people behind these profiles who can respond to those requests in real time. The operation has to be believable from start to finish.</p>
+
+<h4>What We Need From Decoy Photo Volunteers</h4>
+<ul>
+<li>Adult volunteers (18+) who can pass for younger in photos and on camera</li>
+<li>A <strong>written model release form</strong> that spells out exactly how their photos will be used — dating profiles, social media, predator catching operations</li>
+<li>They need to <strong>fully understand the implications</strong>: their face will be on profiles used to bait predators, and those profiles may become part of evidence or public content</li>
+<li>They may need to be available for <strong>live video calls or photo verification requests</strong> from predators to keep the operation convincing</li>
+<li>Include a clause for revoking consent if they leave the group</li>
+<li>Their real identity stays completely confidential — we use their photos but never their real name</li>
+</ul>
+
+<p style="margin-top:12px"><strong>Hard rules:</strong> Never use actual minors' photos. Never use anyone's photos without their written permission and full understanding of how they'll be used.</p>
+</div>
+
+<h3>Legal Documents for Decoys</h3>
+<div class="card">
+<ul>
+<li><strong>Photo/Likeness Release</strong> — permission to use their photos on dating profiles for predator catching</li>
+<li><strong>Volunteer Agreement</strong> — acknowledges risks, confirms they're not employees</li>
+<li><strong>NDA / Confidentiality Agreement</strong> — protects team members' identities and operational details</li>
+<li><strong>Hold Harmless Clause</strong> — limits the organization's liability</li>
+<li><strong>Code of Conduct</strong> — behavioral expectations and grounds for removal</li>
+<li>Have our attorney review all of these before anyone signs</li>
+</ul>
+</div>
+
+<h3>Where We Operate</h3>
+<div class="card">
+<table>
+<tr><th>Platform</th><th>Why</th></tr>
+<tr><td><strong>Tinder</strong></td><td>Massive user base. Age verification is minimal. Predators set age low or lie. Accounts get burned fast — have backups ready.</td></tr>
+<tr><td><strong>Bumble</strong></td><td>Women/decoy messages first, which works in our favor — we control the opener. Photo verification can be tricky, need a real volunteer ready.</td></tr>
+<tr><td><strong>Hinge</strong></td><td>Profile-heavy format gives us more backstory to work with. Predators use it because it feels "relationship-oriented" and less suspicious.</td></tr>
+<tr><td><strong>Kik</strong></td><td>#1 platform for this work. Minimal verification, high predator activity.</td></tr>
+<tr><td><strong>MeetMe / Tagged / Skout</strong></td><td>Lax age verification. Lots of predator activity.</td></tr>
+<tr><td><strong>Plenty of Fish (POF)</strong></td><td>Allows younger age ranges. Less moderation than the big three. Solid hunting ground.</td></tr>
+<tr><td><strong>OkCupid</strong></td><td>Open messaging, detailed profiles. Lower moderation than Tinder/Bumble.</td></tr>
+<tr><td><strong>Snapchat</strong></td><td>Where conversations often escalate to. Screen record everything — messages disappear.</td></tr>
+<tr><td><strong>Instagram DMs</strong></td><td>Common first-contact point. Easy to set up young-looking profiles.</td></tr>
+<tr><td><strong>Facebook Messenger / Dating</strong></td><td>Facebook Dating is separate from the main profile. Messenger still heavily used for grooming.</td></tr>
+<tr><td><strong>Grindr</strong></td><td>For same-sex operations. They ban aggressively — burn through accounts.</td></tr>
+<tr><td><strong>Whisper / Yubo</strong></td><td>Anonymous apps. Heavy predator presence.</td></tr>
+<tr><td><strong>Discord / Gaming</strong></td><td>Gaming communities where kids are targeted. Roblox, Minecraft servers, etc.</td></tr>
+<tr><td><strong>Telegram</strong></td><td>Encryption makes it attractive to predators. Conversations often move here from other platforms.</td></tr>
+</table>
+<p style="margin-top:10px">Every platform's TOS prohibits fake profiles. We'll get banned regularly. That's the cost of doing business — prepaid phones, fresh accounts, keep moving. TOS violations aren't criminal (Van Buren v. United States, 2021).</p>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<section id="evidence">
+<h2>Evidence — Building Cases That Stick</h2>
+<p>Evidence is the difference between a predator getting charged and a predator walking free. Everything we do is built around creating an evidence package so clean that prosecutors have no excuse not to pick it up.</p>
+
+<h3>What Makes Evidence Strong</h3>
+<div class="grid-2">
+<div class="card good">
+<h4>What Gets Cases Made</h4>
+<ul>
+<li>Complete, unedited chat logs with timestamps</li>
+<li>Clear proof the suspect knew the "minor's" age</li>
+<li>The suspect initiated and escalated sexual content</li>
+<li>Suspect voluntarily traveled to a meeting location</li>
+<li>Voluntary statements on camera (not coerced)</li>
+<li>Evidence collected within recording laws</li>
+<li>Documented chain of custody with file hashes</li>
+</ul>
+</div>
+<div class="card">
+<h4>What Kills Cases</h4>
+<ul>
+<li>Edited or cherry-picked chat logs</li>
+<li>Decoy initiated sexual topics</li>
+<li>Illegal recordings (two-party state violations)</li>
+<li>Broken chain of custody</li>
+<li>Statements made under threats or duress</li>
+<li>Evidence obtained through hacking</li>
+</ul>
+</div>
+</div>
+
+<h3>Evidence Preservation Protocol</h3>
+<div class="card">
+<ol>
+<li><strong>Screen record every decoy conversation</strong> — OBS running, full screen capture with timestamps and platform UI visible</li>
+<li><strong>Screenshot in real-time</strong> — don't rely on platform history, messages get deleted</li>
+<li><strong>Export native chat logs</strong> from the platform when possible</li>
+<li><strong>SHA-256 hash every file</strong> immediately after creation — this proves nothing was tampered with</li>
+<li><strong>Never edit original files</strong> — editing strips metadata. Keep originals untouched.</li>
+<li><strong>Triple backup</strong> — local drive, encrypted cloud, and a USB drive specifically for law enforcement</li>
+<li><strong>Confrontation video: continuous, unedited, multiple angles</strong> — body cam + stationary camera. Never stop recording.</li>
+</ol>
+</div>
+
+<h3>The ICAC Evidence Packet</h3>
+<div class="card note">
+<p>When we hand off to ICAC, this is what they get:</p>
+<ul>
+<li>Printed chat logs — chronological, timestamped, complete</li>
+<li>USB drive — original screenshots, screen recordings, chat exports, confrontation video</li>
+<li>Written timeline of events from first contact to meetup</li>
+<li>Decoy profile details — name used, age stated, photos used, volunteer release on file</li>
+<li>Suspect info — usernames, phone numbers, anything they shared</li>
+<li>SHA-256 hash log proving file integrity</li>
+<li>Decoy operator's written statement</li>
+</ul>
+</div>
+
+<h3>Why Civilian Evidence Is Admissible</h3>
+<div class="card">
+<p>The Fourth Amendment exclusionary rule — which can get evidence thrown out — only applies to <strong>government actors</strong>. We're civilians. Evidence we gather is admissible in court in all four states, as long as we didn't break any state laws collecting it (like recording violations). The First Circuit, which covers NH, ME, and MA, has upheld this repeatedly. This is one of the reasons civilian operations can be so effective — we don't have the same constitutional constraints as cops.</p>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<section id="brand">
+<h2>Brand, YouTube & Monetization</h2>
+
+<h3>Building The Brand</h3>
+<div class="card">
+<ul>
+<li><strong>Name:</strong> Something strong, mission-driven, memorable. Not aggressive or vigilante-sounding — we're protectors, not thugs.</li>
+<li><strong>Logo:</strong> Clean, recognizable, works as a social media avatar</li>
+<li><strong>Tagline:</strong> Short and clear. "Protecting kids. Exposing predators." type energy.</li>
+<li><strong>Consistent look</strong> across YouTube, TikTok, Instagram, Facebook, X</li>
+<li><strong>Tone:</strong> Serious, professional, mission-first. The work speaks for itself.</li>
+</ul>
+</div>
+
+<h3>YouTube — Staying Up</h3>
+<div class="card">
+<h4>What Keeps The Channel Alive</h4>
+<ul>
+<li>Bleep explicit language and redact explicit chat content on screen</li>
+<li>Include disclaimers — "All evidence turned over to law enforcement"</li>
+<li>Blur bystanders' faces</li>
+<li>Frame everything as awareness and child protection</li>
+<li>Keep confrontations verbal and controlled on camera</li>
+<li>Don't encourage viewers to contact or harass suspects</li>
+</ul>
+<h4>What Gets Channels Killed</h4>
+<ul>
+<li>Unblurred violence or glorifying physical altercations</li>
+<li>Reading explicit messages word-for-word</li>
+<li>Showing personal info / doxxing on camera</li>
+<li>Encouraging viewers to go after suspects</li>
+</ul>
+</div>
+
+<h3>Revenue Streams</h3>
+<div class="card">
+<table>
+<tr><th>Stream</th><th>Details</th><th>Notes</th></tr>
+<tr><td><strong>YouTube AdSense</strong></td><td>Ad revenue on videos</td><td>Unreliable — many videos get limited ads due to subject matter. Still adds up at scale.</td></tr>
+<tr><td><strong>Patreon / Memberships</strong></td><td>$5-$25/mo tiers — early access, behind-the-scenes, unedited footage, community Discord</td><td>Most consistent income source. Build this early.</td></tr>
+<tr><td><strong>Merch</strong></td><td>T-shirts, hoodies, hats with branding</td><td>Keep it clean and professional. Solid revenue at scale.</td></tr>
+<tr><td><strong>Super Chats / Live</strong></td><td>Live premieres, commentary streams, Q&A</td><td>Super chats during premieres can be significant.</td></tr>
+<tr><td><strong>Sponsorships</strong></td><td>VPNs, personal safety products, security gear</td><td>Niche but real. Many mainstream brands stay away from the space.</td></tr>
+<tr><td><strong>Donations</strong></td><td>Tax-deductible if we go 501(c)(3)</td><td>Opens up grants and corporate giving.</td></tr>
+</table>
+</div>
+
+<h3>Cross-Platform Strategy</h3>
+<div class="card">
+<table>
+<tr><th>Platform</th><th>Purpose</th></tr>
+<tr><td><strong>YouTube</strong></td><td>Full catch videos — primary content home</td></tr>
+<tr><td><strong>TikTok</strong></td><td>30-60 second clips of dramatic moments — drives traffic to YouTube</td></tr>
+<tr><td><strong>Instagram</strong></td><td>Case updates, team photos, awareness content, Stories</td></tr>
+<tr><td><strong>Facebook</strong></td><td>Community group, older demographic engagement</td></tr>
+<tr><td><strong>X / Twitter</strong></td><td>Real-time updates, news, awareness threads</td></tr>
+</table>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<section id="team">
+<h2>Team Structure</h2>
+
+<h3>Minimum Viable Team (5 People)</h3>
+<div class="grid-3">
+<div class="card">
+<h4>Team Lead</h4>
+<p>Strategy, ICAC relationships, final call on operations, public face.</p>
+</div>
+<div class="card">
+<h4>2 Decoy Operators</h4>
+<p>Profile management, conversations, evidence preservation. Work in pairs for quality control.</p>
+</div>
+<div class="card">
+<h4>Camera + Security</h4>
+<p>Films confrontations (multiple angles). Doubles as team protection. De-escalation trained.</p>
+</div>
+</div>
+
+<h3>Full Team (8-10 People)</h3>
+<table>
+<tr><th>Role</th><th>Count</th><th>Job</th></tr>
+<tr><td><strong>Operations Lead</strong></td><td>1</td><td>Strategy, ICAC coordination, approves operations</td></tr>
+<tr><td><strong>Decoy Operators</strong></td><td>2-4</td><td>Profiles, conversations, evidence. Rotating shifts to prevent burnout.</td></tr>
+<tr><td><strong>Confrontation Lead</strong></td><td>1</td><td>Faces the predator on camera. Calm, articulate, comfortable on camera.</td></tr>
+<tr><td><strong>Camera Operators</strong></td><td>1-2</td><td>Primary + backup angles. Never stops recording.</td></tr>
+<tr><td><strong>Security</strong></td><td>1-2</td><td>Team protection. Professional background preferred. De-escalation trained.</td></tr>
+<tr><td><strong>Evidence Manager</strong></td><td>1</td><td>Chain of custody, file hashing, evidence packets, secure storage.</td></tr>
+<tr><td><strong>Content Manager</strong></td><td>1</td><td>Video editing, social media, Patreon, merch, community.</td></tr>
+<tr><td><strong>Attorney</strong></td><td>1</td><td>On retainer. Reviews operations, available on-call, reviews content.</td></tr>
+</table>
+
+<div class="card heads-up">
+<div class="card-label">Mental Health Is Real</div>
+<p>Reading predator conversations every day takes a toll. This isn't something you just shake off. We build support into the operation from day one — therapist access, rotating shifts, regular check-ins, and a clear process for when someone needs to step back. Burning out our team helps nobody.</p>
+</div>
+
+<h3>OpSec</h3>
+<div class="card">
+<ul>
+<li>Team members' real identities stay confidential — especially decoys. Doxxing by predator sympathizers happens.</li>
+<li>Signal for all operational communication — encrypted, no traces.</li>
+<li>Background check everyone on the team. Defense attorneys investigate us too.</li>
+<li>Written SOPs that every member signs. Consistency protects us legally.</li>
+<li>Burner phones for decoy profiles — separate from personal devices.</li>
+</ul>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<section id="legal-entity">
+<h2>Legal Entity & Protection</h2>
+
+<div class="grid-2">
+<div class="card">
+<h4>Start: LLC</h4>
+<ul>
+<li>Protects personal assets from lawsuits against the org</li>
+<li>Easy and cheap to set up</li>
+<li>Good for YouTube/merch revenue</li>
+<li>Gets us operational fast</li>
+</ul>
+</div>
+<div class="card">
+<h4>Goal: 501(c)(3) Nonprofit</h4>
+<ul>
+<li>Tax-exempt status</li>
+<li>Donations become tax-deductible for donors</li>
+<li>Grant eligibility</li>
+<li>Better optics with ICAC and media</li>
+<li>More paperwork (IRS application, annual Form 990)</li>
+</ul>
+</div>
+</div>
+
+<h3>Insurance</h3>
+<div class="card">
+<table>
+<tr><th>Type</th><th>What It Covers</th><th>Estimated Cost/Year</th></tr>
+<tr><td><strong>General Liability</strong></td><td>Third-party injury, property damage claims</td><td>$1,000 - $3,000</td></tr>
+<tr><td><strong>Professional Liability</strong></td><td>Defamation, invasion of privacy, operational errors</td><td>$1,500 - $5,000</td></tr>
+<tr><td><strong>Media Liability</strong></td><td>Content-related claims</td><td>$1,000 - $3,000</td></tr>
+<tr><td><strong>Cyber Liability</strong></td><td>Data breaches of sensitive evidence</td><td>$500 - $2,000</td></tr>
+</table>
+<p style="margin-top:10px"><strong>Budget: roughly $4,000-$10,000/year total.</strong> Finding a willing insurer for this type of org takes some work — use a broker who handles niche/high-risk organizations.</p>
+</div>
+
+<h3>Attorney On Retainer</h3>
+<div class="card highlight">
+<p>This is non-negotiable. Before the first operation, we need a criminal defense attorney who can advise on legality before catches, respond immediately if someone gets arrested, review evidence before ICAC handoffs, and represent us if we get sued. Budget: $2,000-$5,000/month retainer + hourly for active work.</p>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<section id="ops-plan">
+<h2>Operations Plan</h2>
+
+<h3>Phase 1: Foundation (Weeks 1-4)</h3>
+<div class="step"><div class="step-num">1</div><div class="step-body"><h4>Hire The Attorney</h4><p>Find a criminal defense attorney in Maine (our primary state). Get them on retainer. Have them review this entire plan.</p></div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body"><h4>Form The LLC</h4><p>Register, open a business bank account, separate personal and org finances.</p></div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body"><h4>Get Insurance</h4><p>General liability + professional liability minimum.</p></div></div>
+<div class="step"><div class="step-num">4</div><div class="step-body"><h4>Build Brand Identity</h4><p>Name, logo, website, social accounts. Professional and mission-driven.</p></div></div>
+
+<h3>Phase 2: Team & ICAC (Weeks 3-6)</h3>
+<div class="step"><div class="step-num">5</div><div class="step-body"><h4>Recruit Core Team</h4><p>Minimum 5: lead, 2 decoys, camera, security. Background check everyone.</p></div></div>
+<div class="step"><div class="step-num">6</div><div class="step-body"><h4>Legal Documents</h4><p>Attorney drafts: volunteer agreements, photo releases, NDAs, code of conduct, SOPs.</p></div></div>
+<div class="step"><div class="step-num">7</div><div class="step-body"><h4>Training</h4><p>Decoys on legal boundaries & evidence preservation. Camera on equipment. Everyone on de-escalation.</p></div></div>
+<div class="step"><div class="step-num">8</div><div class="step-body"><h4>Contact ICAC</h4><p>Introduce the org to ICAC task forces in all four states. Build relationships. Get point-of-contact names.</p></div></div>
+
+<h3>Phase 3: First Operations (Weeks 5-8)</h3>
+<div class="step"><div class="step-num">9</div><div class="step-body"><h4>Deploy Decoy Profiles</h4><p>Fictional personas using real volunteer photos (with signed releases), clear stated ages (13-14 for strongest charges), prepaid devices.</p></div></div>
+<div class="step"><div class="step-num">10</div><div class="step-body"><h4>Engage & Document</h4><p>Let predators come to us. Never initiate sexual content. State age immediately. Document everything from message one.</p></div></div>
+<div class="step"><div class="step-num">11</div><div class="step-body"><h4>Build Cases</h4><p>When a suspect has: (1) acknowledged age, (2) initiated sexual conversation, (3) proposed meeting — we have a viable case.</p></div></div>
+<div class="step"><div class="step-num">12</div><div class="step-body"><h4>Execute</h4><p>Set the meet in a public location. Team in position, cameras rolling. Follow the escalation model — ICAC gets the evidence. If they don't act, we handle it ourselves.</p></div></div>
+
+<h3>Phase 4: Grow (Ongoing)</h3>
+<div class="step"><div class="step-num">13</div><div class="step-body"><h4>Content Pipeline</h4><p>Evidence to ICAC first. Then edit and publish. Professional production, disclaimers, redacted content. YouTube + clips for TikTok/Instagram.</p></div></div>
+<div class="step"><div class="step-num">14</div><div class="step-body"><h4>Scale Up</h4><p>Consistent upload schedule, Patreon launch, merch, community. Debrief after every catch. Refine the process.</p></div></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="checklist">
+<h2>Launch Checklist</h2>
+
+<div class="grid-2">
+<div class="card">
+<h4>Legal</h4>
+<ul class="checklist">
+<li>Criminal defense attorney retained</li>
+<li>LLC registered</li>
+<li>Business bank account opened</li>
+<li>General liability insurance</li>
+<li>Professional liability insurance</li>
+<li>Volunteer agreements drafted</li>
+<li>Photo/likeness releases drafted</li>
+<li>NDAs drafted</li>
+<li>Code of conduct / SOPs documented</li>
+</ul>
+</div>
+<div class="card">
+<h4>Team</h4>
+<ul class="checklist">
+<li>Core team recruited (minimum 5)</li>
+<li>Background checks completed</li>
+<li>All documents signed</li>
+<li>Decoy training — legal boundaries</li>
+<li>Decoy training — evidence preservation</li>
+<li>Camera operator equipped and trained</li>
+<li>De-escalation training completed</li>
+<li>Mental health support arranged</li>
+<li>Signal group set up</li>
+</ul>
+</div>
+<div class="card">
+<h4>ICAC & Law Enforcement</h4>
+<ul class="checklist">
+<li>NH ICAC contacted</li>
+<li>ME ICAC contacted</li>
+<li>VT ICAC contacted</li>
+<li>MA ICAC contacted</li>
+<li>Point-of-contact names documented</li>
+<li>Evidence handoff protocol established</li>
+<li>Follow-up cadence set (2/4/6/8 weeks)</li>
+<li>Non-emergency line protocol established</li>
+</ul>
+</div>
+<div class="card">
+<h4>Operations & Brand</h4>
+<ul class="checklist">
+<li>Decoy photo volunteers recruited with signed releases</li>
+<li>Decoy personas developed</li>
+<li>Prepaid phones acquired</li>
+<li>Decoy profiles deployed</li>
+<li>OBS / screen recording set up</li>
+<li>Evidence storage (local + cloud + USB)</li>
+<li>SHA-256 hashing workflow ready</li>
+<li>Meeting locations scouted</li>
+<li>YouTube channel created and branded</li>
+<li>TikTok, Instagram, Facebook, X accounts</li>
+<li>Patreon set up</li>
+<li>Website launched</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<section id="groups-study">
+<h2>Groups To Learn From</h2>
+<div class="card">
+<table>
+<tr><th>Group</th><th>What They Do Right</th><th>What We Learn</th></tr>
+<tr>
+<td><strong>To Catch a Predator / Hansen vs Predator</strong></td>
+<td>Professional production, law enforcement partnership with Perverted Justice, iconic format</td>
+<td>The gold standard for LE cooperation. The Louis Conradt incident (suspect suicide, $100M lawsuit) shows why we need liability protection.</td>
+</tr>
+<tr>
+<td><strong>Perverted Justice</strong></td>
+<td>Best decoy protocols ever — never initiate, age stated early, complete archives of everything</td>
+<td>Their training methodology is what we model our decoy operations after.</td>
+</tr>
+<tr>
+<td><strong>Dads Against Predators</strong></td>
+<td>Strong YouTube following, relatable "protecting kids" brand, consistent uploads</td>
+<td>Branding and consistency matter. Upload schedule keeps the audience engaged.</td>
+</tr>
+<tr>
+<td><strong>Predator Poachers</strong></td>
+<td>Huge audience, high-profile catches including cops and politicians</td>
+<td>Alex Rosen's assault arrest (2023) shows the legal risk is real. We accept it, but we're smarter about it.</td>
+</tr>
+<tr>
+<td><strong>CC Unit</strong></td>
+<td>More measured approach, better LE coordination</td>
+<td>Good model for the professional, controlled confrontation style.</td>
+</tr>
+<tr>
+<td><strong>Anxiety War</strong></td>
+<td>Subdued style, lets predators talk themselves into admissions on camera</td>
+<td>Sometimes the calm approach gets better footage and stronger evidence.</td>
+</tr>
+</table>
+</div>
+</section>
+
+<!-- FOOTER -->
+<div class="footnote">
+<p>This is a working document. Laws referenced should be verified against current state legislature websites before operations begin. An attorney should review the full plan.</p>
+<p style="margin-top:8px;">Compiled March 2026 — NH, ME, VT, MA</p>
+</div>
+
+</div><!-- /container -->
+
+<script>
+function showState(id) {
+  document.querySelectorAll('.state-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.state-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('state-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+// Close nav dropdown when clicking outside
+document.addEventListener('click', function(e) {
+  var dd = document.getElementById('navDropdown');
+  if (dd && !dd.contains(e.target)) dd.classList.remove('open');
+});
+</script>
+</body>
+</html>
